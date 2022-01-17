@@ -36,9 +36,9 @@
         color="primary"
         horizontal
       >
-        <a href="/" class="v-btn">
+        <v-btn to="/" class="v-btn">
           <span>Home</span>
-        </a>
+        </v-btn>
    
         <!-- <v-menu open-on-hover offset-y>
           <template v-slot:activator="{ on }">
@@ -62,13 +62,13 @@
 
           </v-card>
         </v-menu> -->
-        <a href="/shop" class="v-btn">
+        <v-btn to="/shop" class="v-btn">
           <span>Shop</span>
-        </a>
-        <a href="/contact" class="v-btn">
+        </v-btn>
+        <v-btn to="/contact" class="v-btn">
           <span>Contact Us</span>
-        </a>
-        <v-btn href="/blog">
+        </v-btn>
+        <v-btn to="/blog">
           <span>Blog</span>
         </v-btn>
       </v-bottom-navigation>
