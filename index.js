@@ -7,11 +7,7 @@ app.use(cookieParser())
 const port = 3000
 
 app.use(express.static(path.join(__dirname, '/companiondates.ca/dist')));
-app.use(cors())
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
 app.listen(port, () => {
-    console.log(`companion dates listening at http://localhost:${port}`)
+    console.log(`companiondates listening at http://localhost:${port}`)
 })
