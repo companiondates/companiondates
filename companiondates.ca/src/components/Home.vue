@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-carousel hide-delimiters>
+    <v-carousel hide-delimiters cycle>
       <v-carousel-item
         :src="require('../assets/img/home/slider4.jpg')"
       >
@@ -9,7 +9,7 @@
           align="center"
           justify="center"
         >
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong>Upto 60% + Extra 10%</strong></div><br/>
+          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong style="text-shadow:1px 2px 3px black">Get 2 outfits + 1 wig FREE!</strong></div><br/>
         </v-row>
       </v-carousel-item>
       <v-carousel-item
@@ -20,7 +20,7 @@
           align="center"
           justify="center"
         >
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong>Upto 60% + Extra 10%</strong></div><br/>
+          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong style="text-shadow:1px 2px 3px black">Get 2 outfits + 1 wig FREE!</strong></div><br/>
         </v-row>
       </v-carousel-item>
       <v-carousel-item
@@ -31,7 +31,7 @@
           align="center"
           justify="center"
         >
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong>Upto 60% + Extra 10%</strong></div><br/>
+          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong style="text-shadow:1px 2px 3px black">Get 2 outfits + 1 wig FREE!</strong></div><br/>
         </v-row>
       </v-carousel-item>
       <v-carousel-item
@@ -42,7 +42,7 @@
           align="center"
           justify="center"
         >
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong>Upto 60% + Extra 10%</strong></div><br/>
+          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only"><strong style="text-shadow:1px 2px 3px black">Get 2 outfits + 1 wig FREE!</strong></div><br/>
         </v-row>
       </v-carousel-item>
 
@@ -59,7 +59,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
           >
-           <h1 class="text-center font-size">Top Picks</h1>
+           <h1 class="text-center font-size">Silicone</h1>
             <div class="text-center">
               <v-btn  href="/shop" class="white--text " outlined>SHOP NOW</v-btn>
             </div>
@@ -90,7 +90,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
           >
-            <h1 class="text-center font-size">New Arrivals</h1>
+            <h1 class="text-center font-size">TPE</h1>
             <div class="text-center">
               <v-btn  href="/shop" class="white--text" outlined>SHOP NOW</v-btn>
             </div>
@@ -109,7 +109,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Mini Sex Dolls</h1>
             <div class="text-center mt-2">
               <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
             </div>
@@ -126,7 +126,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Busty Sex Dolls</h1>
             <div class="text-center mt-2">
               <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
             </div>
@@ -143,7 +143,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Asian Sex Dolls</h1>
             <div class="text-center mt-2">
               <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
             </div>
@@ -331,7 +331,7 @@
                 <v-icon class="display-2">mdi-headset</v-icon>
               </v-col>
               <v-col  class="col-12 col-sm-9 pr-4">
-                <h3 class="font-weight-light">020-800-456-747</h3>
+                <h3 class="font-weight-light">647-494-2192</h3>
                 <p class="font-weight-thin">24/7 Available Support</p>
               </v-col>
             </v-row>

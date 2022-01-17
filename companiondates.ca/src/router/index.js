@@ -7,6 +7,7 @@ import Blog from '@/components/Blog'
 import Post from '@/components/Post'
 import Cart from '@/components/Cart'
 import Layout from '@/components/Layout'
+import Contact from '@/components/Contact'
 
 Vue.use(Router)
 
@@ -15,42 +16,47 @@ export default new Router({
     {
       path: '/',
       component: Layout,
-      children:[
+      children: [
         {
-          path:'/',
-          component:Home,
-          name:'Home'
+          path: '/',
+          component: Home,
+          name: 'Home'
         },
         {
-          path:'/shop',
-          component:Shop,
-          name:'Shop'
+          path: '/shop',
+          component: Shop,
+          name: 'Shop'
         },
         {
-          path:'/product',
-          component:Product,
-          name:'Product'
+          path: '/product',
+          component: Product,
+          name: 'Product'
         },
         {
-          path:'/blog',
-          component:Blog,
-          name:'Blog'
+          path: '/blog',
+          component: Blog,
+          name: 'Blog'
         },
         {
-          path:'/post',
-          component:Post,
-          name:'Post'
+          path: '/post',
+          component: Post,
+          name: 'Post'
         },
         {
-          path:'/cart',
-          component:Cart,
-          name:'Cart'
+          path: '/cart',
+          component: Cart,
+          name: 'Cart'
+        },
+        {
+          path: '/contact',
+          component: Contact,
+          name: 'Contact'
         }
       ]
 
     }
   ],
-    mode:'history'
+  mode: 'history'
 },
 
-  )
+)

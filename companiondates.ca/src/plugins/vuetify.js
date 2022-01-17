@@ -4,10 +4,12 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import colors from 'vuetify/lib/util/colors'
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(Vuetify);
 
-const opts = {theme: {
+const opts = {
+  theme: {
     themes: {
       light: {
         primary: '#2D3753',
@@ -19,6 +21,8 @@ const opts = {theme: {
         warning: '#f78012',
       }
     },
-  },};
+    iconfont: 'mdiAccount'
+  },
+};
 
 export default new Vuetify(opts)

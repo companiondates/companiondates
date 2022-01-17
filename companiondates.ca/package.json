@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "serve": "vue-cli-service serve",
-    "build": "node build/build.js"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "material-design-icons-iconfont": "^5.0.1",
@@ -14,6 +14,8 @@
     "vuetify": "^2.2.14"
   },
   "devDependencies": {
+    "@mdi/font": "^6.5.95",
+    "@mdi/js": "^6.5.95",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
