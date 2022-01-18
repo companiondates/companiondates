@@ -15,7 +15,12 @@ app.use(cookieParser())
 
 app.use(express.static(path.join(__dirname, '/companiondates.ca/dist')));
 
-app.get('/getDolls', async (req, res) => {
+
+
+
+
+
+app.get('/api/getDolls', async (req, res) => {
     try {
         let dolls = (await db.execute('SELECT * FROM DOLLS'))[0]
         console.log(dolls)
@@ -25,7 +30,7 @@ app.get('/getDolls', async (req, res) => {
     }
 })
 
-app.post('/addDoll', async (req, res) => {
+app.post('/api/addDoll', async (req, res) => {
     const doll = req.body.doll
     try {
         let newDoll = await db.execute('INSERT INTO DOLLS (HEIGHT, NAME, BRAND, PRICE, PICTURE) VALUES(?,?,?,?,?)', [doll.height, doll.name, doll.brand, doll.price, doll.picture])
@@ -35,7 +40,7 @@ app.post('/addDoll', async (req, res) => {
     }
 })
 
-app.delete('/deleteDoll', async (req, res) => {
+app.delete('/api/deleteDoll', async (req, res) => {
     const doll = req.body.doll
     try {
         let deletedDoll = await db.execute('DELETE FROM DOLLS WHERE ID = ?', [doll.id])
@@ -45,7 +50,7 @@ app.delete('/deleteDoll', async (req, res) => {
     }
 })
 
-app.put('/updateDoll', async (req, res) => {
+app.put('/api/updateDoll', async (req, res) => {
     const doll = req.body.doll
     try {
         let updatedDoll = await db.execute('UPDATE DOLLS SET HEIGHT = ?, NAME = ?, BRAND = ?, PRICE = ?, PICTURE = ?', [doll.height, doll.name, doll.brand, doll.price, doll.picture])
