@@ -95,7 +95,7 @@
                     class="white--text align-end"
                     :aspect-ratio="16/9"
                     height="200px"
-                    :src="pro.picture"
+                    :src="require(`../assets/img/shop/${pro.ID}.jpg`)"
                   >
                     <v-card-title style="text-shadow:1px 2px 3px black">{{pro.NAME}} </v-card-title>
                     <v-expand-transition>
