@@ -55,6 +55,6 @@ app.put('/updateDoll', async (req, res) => {
     }
 })
 
-app.listen(process.env.VUE_APP_PORT || 5000, () => {
-    console.log(`companiondates listening at http://localhost:${process.env.VUE_APP_PORT || 5000}`)
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`companiondates listening at http://localhost:${process.env.PORT || 5000}`)
 })
