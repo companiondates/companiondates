@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
+require('dotenv').config();
 
-const pool = mysql.createPool('mysql://bba1faf40bc6d9:09d46d26@us-cdbr-east-05.cleardb.net/heroku_248980a844888ba?reconnect=true');
+const pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
 
 module.exports = pool.promise();

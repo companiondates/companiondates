@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser')
 const path = require('path')
 var db = require('./database')
 var bodyParser = require('body-parser')
+require('dotenv').config();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
