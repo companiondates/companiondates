@@ -95,23 +95,23 @@
                     class="white--text align-end"
                     :aspect-ratio="16/9"
                     height="200px"
-                    :src="pro.src"
+                    :src="pro.picture"
                   >
-                    <v-card-title>{{pro.type}} </v-card-title>
+                    <v-card-title style="text-shadow:1px 2px 3px black">{{pro.NAME}} </v-card-title>
                     <v-expand-transition>
                       <div
                         v-if="hover"
                         class="d-flex transition-fast-in-fast-out white darken-2 v-card--reveal display-3 white--text"
                         style="height: 100%;"
                       >
-                        <v-btn v-if="hover" href="/product" class="" outlined>VIEW</v-btn>
+                        <v-btn v-if="hover" to="/product" class="" outlined>VIEW</v-btn>
                       </div>
 
                     </v-expand-transition>
                   </v-img>
                   <v-card-text class="text--primary">
-                    <div><a href="/product" style="text-decoration: none">{{pro.name}}</a></div>
-                    <div>${{pro.price}}</div>
+                    <div><router-link to="/product" style="text-decoration: none">{{pro.HEIGHT}}</router-link></div>
+                    <div>${{pro.PRICE}}</div>
                   </v-card-text>
                 </v-card>
               </v-hover>
@@ -139,6 +139,7 @@
   }
 </style>
 <script>
+import axios from 'axios'
     export default {
         data: () => ({
             range: [0, 10000],
@@ -158,12 +159,12 @@
                     href: 'breadcrumbs_home',
                 },
                 {
-                    text: 'Clothing',
+                    text: 'Shop',
                     disabled: false,
                     href: 'breadcrumbs_clothing',
                 },
                 {
-                    text: 'T-Shirts',
+                    text: 'Sex Dolls',
                     disabled: true,
                     href: 'breadcrumbs_shirts',
                 },
@@ -192,90 +193,101 @@
                 }
             ],
             products:[
-                {
-                    id:1,
-                    name:'BLACK TEE',
-                    type:'Jackets',
-                    price:'18.00',
-                    src:require('../assets/img/shop/1.jpg')
-                },
-                {
-                    id:2,
-                    name:'WHITE TEE',
-                    type:'Polo',
-                    price:'40.00',
-                    src:require('../assets/img/shop/2.jpg')
-                },
-                {
-                    id:3,
-                    name:'Zara limited...',
-                    type:'Denim',
-                    price:'25.00',
-                    src:require('../assets/img/shop/3.jpg')
-                },
-                {
-                    id:4,
-                    name:'SKULL TEE',
-                    type:'Jackets',
-                    price:'30.00',
-                    src:require('../assets/img/shop/4.jpg')
-                },
-                {
-                    id:5,
-                    name:'MANGO WINTER',
-                    type:'Sweaters',
-                    price:'50.00',
-                    src:require('../assets/img/shop/5.jpg')
-                },
-                {
-                    id:6,
-                    name:'SHIRT',
-                    type:'Denim',
-                    price:'34.00',
-                    src:require('../assets/img/shop/6.jpg')
-                },
-                {
-                    id:7,
-                    name:'TRUCKER JACKET',
-                    type:'Jackets',
-                    price:'38.00',
-                    src:require('../assets/img/shop/7.jpg')
-                },
-                {
-                    id:8,
-                    name:'COATS',
-                    type:'Jackets',
-                    price:'25.00',
-                    src:require('../assets/img/shop/8.jpg')
-                },{
-                    id:9,
-                    name:'MANGO WINTER',
-                    type:'Sweaters',
-                    price:'50.00',
-                    src:require('../assets/img/shop/9.jpg')
-                },
-                {
-                    id:10,
-                    name:'SHIRT',
-                    type:'Denim',
-                    price:'34.00',
-                    src:require('../assets/img/shop/10.jpg')
-                },
-                {
-                    id:11,
-                    name:'TRUCKER JACKET',
-                    type:'Jackets',
-                    price:'38.00',
-                    src:require('../assets/img/shop/11.jpg')
-                },
-                {
-                    id:12,
-                    name:'COATS',
-                    type:'Jackets',
-                    price:'25.00',
-                    src:require('../assets/img/shop/12.jpg')
-                }
+            //     {
+            //         id:1,
+            //         name:'BLACK TEE',
+            //         type:'Jackets',
+            //         price:'18.00',
+            //         src:require('../assets/img/shop/1.jpg')
+            //     },
+            //     {
+            //         id:2,
+            //         name:'WHITE TEE',
+            //         type:'Polo',
+            //         price:'40.00',
+            //         src:require('../assets/img/shop/2.jpg')
+            //     },
+            //     {
+            //         id:3,
+            //         name:'Zara limited...',
+            //         type:'Denim',
+            //         price:'25.00',
+            //         src:require('../assets/img/shop/3.jpg')
+            //     },
+            //     {
+            //         id:4,
+            //         name:'SKULL TEE',
+            //         type:'Jackets',
+            //         price:'30.00',
+            //         src:require('../assets/img/shop/4.jpg')
+            //     },
+            //     {
+            //         id:5,
+            //         name:'MANGO WINTER',
+            //         type:'Sweaters',
+            //         price:'50.00',
+            //         src:require('../assets/img/shop/5.jpg')
+            //     },
+            //     {
+            //         id:6,
+            //         name:'SHIRT',
+            //         type:'Denim',
+            //         price:'34.00',
+            //         src:require('../assets/img/shop/6.jpg')
+            //     },
+            //     {
+            //         id:7,
+            //         name:'TRUCKER JACKET',
+            //         type:'Jackets',
+            //         price:'38.00',
+            //         src:require('../assets/img/shop/7.jpg')
+            //     },
+            //     {
+            //         id:8,
+            //         name:'COATS',
+            //         type:'Jackets',
+            //         price:'25.00',
+            //         src:require('../assets/img/shop/8.jpg')
+            //     },{
+            //         id:9,
+            //         name:'MANGO WINTER',
+            //         type:'Sweaters',
+            //         price:'50.00',
+            //         src:require('../assets/img/shop/9.jpg')
+            //     },
+            //     {
+            //         id:10,
+            //         name:'SHIRT',
+            //         type:'Denim',
+            //         price:'34.00',
+            //         src:require('../assets/img/shop/10.jpg')
+            //     },
+            //     {
+            //         id:11,
+            //         name:'TRUCKER JACKET',
+            //         type:'Jackets',
+            //         price:'38.00',
+            //         src:require('../assets/img/shop/11.jpg')
+            //     },
+            //     {
+            //         id:12,
+            //         name:'COATS',
+            //         type:'Jackets',
+            //         price:'25.00',
+            //         src:require('../assets/img/shop/12.jpg')
+            //     }
             ]
         }),
+        methods:{
+          getDolls(){
+            axios.get('/api/getDolls')
+            .then(resp=>{
+              this.products = resp.data
+            })
+          }
+        },
+        created(){
+          this.getDolls()
+        }
     }
 </script>

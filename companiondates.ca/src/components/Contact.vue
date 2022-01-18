@@ -1,73 +1,94 @@
 <template>
 <v-container>
-    <div class="p-10">
-        <v-card>
+    <p class="display-2 font-weight-light	text-center pa-4">How Can We Help?</p>
+    <div>
+        <v-card class="pa-10">
             <v-form
             ref="form"
-            v-model="valid"
-            lazy-validation
+            action="https://formspree.io/f/mlezgnno"
+            method="post"
+            v-model="invalid"
+            validation
             >
                 <v-text-field
                 v-model="name"
                 :counter="10"
                 :rules="nameRules"
                 label="Name"
+                id="Name"
+                name="name"
                 required
                 ></v-text-field>
 
                 <v-text-field
                 v-model="email"
+                id="email"
                 :rules="emailRules"
                 label="E-mail"
                 required
+                name="_replyto"
                 ></v-text-field>
-
-                <v-select
-                v-model="select"
-                :items="items"
-                :rules="[v => !!v || 'Item is required']"
-                label="Item"
-                required
-                ></v-select>
-
-                <v-checkbox
-                v-model="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                label="Do you agree?"
-                required
-                ></v-checkbox>
-
+                
+                <v-textarea
+                    filled
+                    :rules="messageRules"
+                    label="What's on your mind?"
+                    auto-grow
+                    value=""
+                    v-model="message"
+                    required
+                    id="message"
+                    name="message"
+                ></v-textarea>
+                
+                <input type="hidden" name="_subject" :value="`${name} is asking about companiondates! `">
                 <v-btn
-                :disabled="!valid"
-                color="success"
-                class="mr-4"
-                @click="validate"
+                    :disabled="!invalid"
+                    color="success"
+                    class="mr-4"
+                    type="submit"
                 >
-                Validate
+                Submit
                 </v-btn>
 
-                <v-btn
-                color="error"
-                class="mr-4"
-                @click="reset"
-                >
-                Reset Form
-                </v-btn>
-
-                <v-btn
-                color="warning"
-                @click="resetValidation"
-                >
-                Reset Validation
-                </v-btn>
             </v-form>
         </v-card>
     </div>
 </v-container>
 </template>
-
 <script>
 export default {
-    
+    data: ()=>({
+        email: '',
+        emailRules: [
+            v => !!v || 'E-mail is required',
+            v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        ],
+        invalid: false,
+        name: '',
+        nameRules: [
+            v => !!v || 'Name is required',
+        ],
+        message: '',
+        messageRules: [
+            v => !!v || 'Message is required',
+        ]
+    }),
+    methods: {
+        validate() {
+            alert(this.invalid)
+            return this.$refs.form.validate()
+        },
+        recaptcha() {
+            this.$recaptcha('login').then((token) => {
+                console.log(token) // Will print the token
+            })
+        }
+    },
+    watcher:{
+        invalid(){
+            return this.validate()
+        }
+    }
 }
 </script>

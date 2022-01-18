@@ -61,7 +61,7 @@
           >
            <h1 class="text-center font-size">Silicone</h1>
             <div class="text-center">
-              <v-btn  href="/shop" class="white--text " outlined>SHOP NOW</v-btn>
+              <v-btn  to="/shop" class="white--text " outlined>SHOP NOW</v-btn>
             </div>
 
 
@@ -92,7 +92,7 @@
           >
             <h1 class="text-center font-size">TPE</h1>
             <div class="text-center">
-              <v-btn  href="/shop" class="white--text" outlined>SHOP NOW</v-btn>
+              <v-btn to="/shop" class="white--text" outlined>SHOP NOW</v-btn>
             </div>
           </v-img>
         </v-card>
@@ -111,7 +111,7 @@
           >
             <h1 class="text-center font-size">Mini Sex Dolls</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+              <v-btn class="white--text caption" to="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
             </div>
           </v-img>
         </v-card>
@@ -128,7 +128,7 @@
           >
             <h1 class="text-center font-size">Busty Sex Dolls</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+              <v-btn class="white--text caption"  to="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
             </div>
           </v-img>
         </v-card>
@@ -145,7 +145,7 @@
           >
             <h1 class="text-center font-size">Asian Sex Dolls</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+              <v-btn class="white--text caption" to="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
             </div>
           </v-img>
         </v-card>
@@ -185,7 +185,7 @@
 
                   <div class="text-center">
                     <v-btn
-                      href="/shop"
+                      to="/shop"
                       class="ma-2"
                       outlined
                       color="info"
@@ -218,7 +218,7 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <v-btn to="/shop"
                       class="ma-2"
                       outlined
                       color="info"
@@ -251,7 +251,7 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <v-btn to="/shop"
                       class="ma-2"
                       outlined
                       color="info"
@@ -284,7 +284,7 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <v-btn to="/shop"
                       class="ma-2"
                       outlined
                       color="info"

@@ -55,7 +55,7 @@
             <v-list-item
               v-for="(item, index) in items"
               :key="index"
-              href="/shop"
+              to="/shop"
             >
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item>
@@ -94,6 +94,7 @@
           <v-btn
             class="mx-4 white--text"
             icon
+            href="mailto:fdaluca@yahoo.ca"
           >
             <v-icon size="24px">mdi-email</v-icon>
           </v-btn>
@@ -108,7 +109,7 @@
         </v-card-text>
 
         <v-card-text class="white--text pt-0">
-          Contact us by phone or email for any inquiries and we'll get back to you as soon as possible. Companion Dates prides ourselves on providing excellent customer service or assistance regarding any inquiry or questions that you may have. Contact us via our 24/7 phone number 647-494-2192 by call or text, or alternatively by email info@companiondates.com.
+          Contact us by phone or email for any inquiries and we'll get back to you as soon as possible. Companion Dates prides ourselves on providing excellent customer service or assistance regarding any inquiry or questions that you may have. Contact us via our 24/7 phone number 647-494-2192 by call or text, or alternatively by email fdaluca@yahoo.ca
         </v-card-text>
 
         <v-divider></v-divider>

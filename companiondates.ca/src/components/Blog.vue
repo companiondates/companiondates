@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <p class="display-3 font-weight-light	text-center pa-4">Read About Fashion</p>
+      <p class="display-3 font-weight-light	text-center pa-4">Read About Sex Dolls</p>
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12">
             <v-card
@@ -9,14 +9,14 @@
               max-width="400"
               outlined
               tile
-              href="/post"
+              to="/post"
             >
               <v-img
                 class="white--text align-end"
                 height="400px"
                 :src="require('../assets/img/home/slider2.jpg')"
               >
-                <v-card-title>Top 10 Fashion of the Week</v-card-title>
+                <v-card-title style="text-shadow: 1px 1px 3px black">Ai and Robotics</v-card-title>
               </v-img>
 
               <v-card-subtitle class="pb-0">Lorem ipsum</v-card-subtitle>
@@ -44,14 +44,14 @@
               max-width="400"
               outlined
               tile
-              href="/post"
+              to="/post"
             >
               <v-img
                 class="white--text align-end"
                 height="400px"
                 :src="require('../assets/img/home/slider3.jpg')"
               >
-                <v-card-title>Best brands for fashion</v-card-title>
+                <v-card-title style="text-shadow: 1px 1px 3px black">Why purchase a Sex Doll?</v-card-title>
               </v-img>
 
               <v-card-subtitle class="pb-0">Lorem ipsum</v-card-subtitle>
@@ -79,14 +79,14 @@
               max-width="400"
               outlined
               tile
-              href="/post"
+              to="/post"
             >
               <v-img
                 class="white--text align-end"
                 height="400px"
                 :src="require('../assets/img/home/slider4.jpg')"
               >
-                <v-card-title>Fashion Tips & Tricks</v-card-title>
+                <v-card-title style="text-shadow: 1px 1px 3px black">Sex Doll Care</v-card-title>
               </v-img>
 
               <v-card-subtitle class="pb-0">Lorem ipsum</v-card-subtitle>
