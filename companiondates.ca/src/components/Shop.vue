@@ -104,13 +104,13 @@
                         class="d-flex transition-fast-in-fast-out white darken-2 v-card--reveal display-3 white--text"
                         style="height: 100%;"
                       >
-                        <v-btn v-if="hover" to="/product" class="" outlined>VIEW</v-btn>
+                        <v-btn v-if="hover" :to="`/product?doll=${pro.ID}`" class="" outlined>VIEW</v-btn>
                       </div>
 
                     </v-expand-transition>
                   </v-img>
                   <v-card-text class="text--primary">
-                    <div><router-link to="/product" style="text-decoration: none">{{pro.HEIGHT}}</router-link></div>
+                    <div><router-link :to="`/product?doll=${pro.ID}`" style="text-decoration: none">{{pro.HEIGHT}}</router-link></div>
                     <div>${{pro.PRICE}}</div>
                   </v-card-text>
                 </v-card>
@@ -156,17 +156,12 @@ import axios from 'axios'
                 {
                     text: 'Home',
                     disabled: false,
-                    href: 'breadcrumbs_home',
-                },
-                {
-                    text: 'Shop',
-                    disabled: false,
-                    href: 'breadcrumbs_clothing',
+                    to: '/',
                 },
                 {
                     text: 'Sex Dolls',
                     disabled: true,
-                    href: 'breadcrumbs_shirts',
+                    to: '/shop',
                 },
             ],
             min:0,
@@ -286,7 +281,7 @@ import axios from 'axios'
             })
           }
         },
-        created(){
+        beforeMount(){
           this.getDolls()
         }
     }

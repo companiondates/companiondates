@@ -2,50 +2,41 @@
   <div>
     <v-container>
       <div class="row">
-        <div class="col-md-5 col-sm-5 col-xs-12">
-          <v-carousel>
-            <v-carousel-item
-              :src="require('../assets/img/home/slider4.jpg')"
-            >
-            </v-carousel-item>
-            <v-carousel-item
-              :src="require('../assets/img/home/slider2.jpg')"
-            >
-            </v-carousel-item>
-            <v-carousel-item
-              :src="require('../assets/img/home/slider3.jpg')"
-            >
-            </v-carousel-item>
-            <v-carousel-item
-              :src="require('../assets/img/home/slider1.jpg')"
-            >
-            </v-carousel-item>
-
-          </v-carousel>
+        <div class="col-xl-4 col-md-5 col-sm-5 col-xs-12">
+            <v-carousel style="max-width:469.75px;">
+              <v-carousel-item
+                :src="require(`../assets/img/shop/${doll.ID}.jpg`)"
+              >
+              </v-carousel-item>
+              <v-carousel-item
+                :src="require(`../assets/img/shop/${doll.ID}2.jpg`)"
+              ></v-carousel-item>
+              <v-carousel-item
+                :src="require(`../assets/img/shop/${doll.ID}3.jpg`)"
+              ></v-carousel-item>
+              <v-carousel-item
+                :src="require(`../assets/img/shop/${doll.ID}4.jpg`)"
+              ></v-carousel-item>
+            </v-carousel>
         </div>
         <div class="col-md-7 col-sm-7 col-xs-12">
           <v-breadcrumbs class="pb-0" :items="breadcrums"></v-breadcrumbs>
           <div class="pl-6">
-            <p class="display-1 mb-0">Modern Black T-Shirt</p>
+            <p class="display-1 mb-0">{{doll.NAME}}</p>
             <v-card-actions class="pa-0">
-              <p class="headline font-weight-light pt-3">$65.00 <del style="" class="subtitle-1 font-weight-thin">$80.00</del></p>
+              <p class="headline font-weight-light pt-3">${{doll.PRICE}} <del style="" class="subtitle-1 font-weight-thin">${{doll.PRICE + 200}}</del></p>
               <v-spacer></v-spacer>
               <v-rating v-model="rating" class="" background-color="warning lighten-3"
                         color="warning" dense></v-rating>
               <span class="body-2	font-weight-thin"> 25 REVIEWS</span>
             </v-card-actions>
-            <p class="subtitle-1 font-weight-thin">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Tincidunt arcu non sodales neque sodales ut etiam. Lectus arcu bibendum at varius vel pharetra. Morbi tristique senectus et netus et malesuada.
+            <p class="subtitle-1">
+              <strong>Material: </strong> {{doll.MATERIAL_TYPE}} <br>
+              <strong>Weight: </strong> {{doll.WEIGHT}} <br>
+              <strong>Ethnicity: </strong> {{doll.ETHNICITY}} <br>
+              <strong>Category: </strong> {{doll.CATEGORY}} <br>
             </p>
-            <p class="title">SIZE</p>
-            <v-radio-group v-model="row" row>
-              <v-radio label="XS" value="XS"></v-radio>
-              <v-radio label="S" value="s"></v-radio>
-              <v-radio label="M" value="m"></v-radio>
-              <v-radio label="L" value="l"></v-radio>
-              <v-radio label="XL" value="xl"></v-radio>
-            </v-radio-group>
-            <p class="title">ITEMS</p>
+            <p class="title">QTY:</p>
 
             <v-text-field
                 outlined
@@ -54,7 +45,7 @@
                 dense
             ></v-text-field>
             <v-btn class="primary white--text" outlined tile dense><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
-            <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn>
+            <v-btn class="ml-4" outlined tile disabled>ADD TO WISHLIST</v-btn>
 
           </div>
 
@@ -65,26 +56,28 @@
         <div class="col-sm-12 col-xs-12 col-md-12">
           <v-tabs>
             <v-tab >Description</v-tab>
-            <v-tab >Materials</v-tab>
+            <v-tab >Maintenance</v-tab>
             <v-tab>REVIEWS</v-tab>
             <v-tab-item>
               <p class="pt-10 subtitle-1 font-weight-thin">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ultricies mi eget mauris pharetra et. Vel pretium lectus quam id leo in vitae turpis
-                massa. Orci dapibus ultrices in iaculis nunc. At auctor urna nunc id cursus metus. Integer feugiat
-                scelerisque varius morbi enim nunc. Aliquam sem et tortor consequat id porta nibh venenatis cras.
-                Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Malesuada nunc vel risus
-                commodo viverra maecenas. Neque volutpat ac tincidunt vitae semper quis.
+                {{doll.MEASUREMENTS}}
               </p>
+              
+              <vue-picture-swipe class="imageWrapper" :items="photos"></vue-picture-swipe>
             </v-tab-item>
             <v-tab-item>
-              <p class="pt-10 subtitle-1 font-weight-thin">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ultricies mi eget mauris pharetra et. Vel pretium lectus quam id leo in vitae turpis
-                massa. Orci dapibus ultrices in iaculis nunc. At auctor urna nunc id cursus metus. Integer feugiat
-                scelerisque varius morbi enim nunc. Aliquam sem et tortor consequat id porta nibh venenatis cras.
-                Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Malesuada nunc vel risus
-                commodo viverra maecenas. Neque volutpat ac tincidunt vitae semper quis.
+              <p class="pt-10 subtitle-1">
+              <b>(1).Shower: </b> Your doll should be cleaned every time use,with mild shower foam.The head should be taken off and cleaned separately.
+              <br>
+              <b>(2).Skin Clean: </b>Please keep the head away from water. When the skin becomes sticky,please clean with bath powder.Dry and use baby powder to make her smooth.
+              <br>
+              <b>(3).Dry: </b>Please dry with a towel after cleaning and apply baby powder. DO NOT use a hair dryer.
+              <br>
+              <b>(4).Wash Hair: </b>Use mild shampoo to wash the hair and let it dry naturally.
+              <br>
+              <b>(5).Clothes: </b>Please put on clothes for the doll to keep clean.
+              <br>
+              <b>(6).Move: </b>Be careful when moving the doll,avoid dropping,knocking,breaking.
               </p>
             </v-tab-item>
             <v-tab-item>
@@ -364,26 +357,26 @@
   </div>
 </template>
 <script>
+  import axios from "axios"
+  import VuePictureSwipe from 'vue-picture-swipe';
     export default {
         data: () => ({
             rating:4.5,
+            doll: {ID:24, PRICE: 0, NAME:"", BRAND:"", HEIGHT:"", picture:""},
+            isGalleryOpen: false,
             breadcrums: [
                 {
                     text: 'Home',
                     disabled: false,
-                    href: 'breadcrumbs_home',
+                    to:'/',
                 },
                 {
-                    text: 'Clothing',
+                    text: 'Sex Dolls',
                     disabled: false,
-                    href: 'breadcrumbs_clothing',
-                },
-                {
-                    text: 'T-Shirts',
-                    disabled: true,
-                    href: 'breadcrumbs_shirts',
+                    to:'/shop',
                 },
             ],
+            photos:[],
             item: 5,
             items: [
                 {
@@ -414,5 +407,60 @@
                 },
             ],
         }),
+        methods:{
+          openGallery(){
+            this.isGalleryOpen = !this.isGalleryOpen;
+          }
+        },
+        mounted(){
+          let dollID = this.$route.query.doll
+        
+          axios.post('/api/getDoll',{dollID: dollID })
+          .then(resp=>{
+            console.log(resp.data)
+            this.doll = resp.data[0]
+            this.breadcrums.push(  
+              {
+                text: `${this.doll.NAME}`,
+                disabled: true,
+                to: `/product?doll=${this.doll.NAME}`,
+              }
+            )
+            this.photos.push(
+              {
+                src: require(`../assets/img/shop/${this.doll.ID}.jpg`),
+                thumbnail: require(`../assets/img/shop/${this.doll.ID}.jpg`),
+                w: 600,
+                h: 800
+              },
+              {
+                src: require(`../assets/img/shop/${this.doll.ID}2.jpg`),
+                thumbnail: require(`../assets/img/shop/${this.doll.ID}2.jpg`),
+                w: 600,
+                h: 800
+              },
+              {
+                src: require(`../assets/img/shop/${this.doll.ID}3.jpg`),
+                thumbnail: require(`../assets/img/shop/${this.doll.ID}3.jpg`),
+                w: 600,
+                h: 800},
+              {
+                src: require(`../assets/img/shop/${this.doll.ID}4.jpg`),
+                thumbnail: require(`../assets/img/shop/${this.doll.ID}4.jpg`),
+                w: 600,
+                h: 800
+              }
+            )
+          })
+        }
     }
 </script>
+<style>
+
+.imageWrapper img{
+  height:500px;
+  width:400px;
+  max-width: none!important;
+  object-fit: contain!important;
+}
+</style>

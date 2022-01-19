@@ -15,16 +15,20 @@ app.use(cookieParser())
 
 app.use(express.static(path.join(__dirname, '/companiondates.ca/dist')));
 
-
-
-
-
-
 app.get('/api/getDolls', async (req, res) => {
     try {
         let dolls = (await db.execute('SELECT * FROM DOLLS'))[0]
-        console.log(dolls)
         res.status(200).json(dolls)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+app.post('/api/getDoll', async (req, res) => {
+    let dollID = req.body.dollID
+    try {
+        let doll = (await db.execute('SELECT * FROM DOLLS where ID = ?', [dollID]))[0]
+        res.status(200).json(doll)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -33,7 +37,7 @@ app.get('/api/getDolls', async (req, res) => {
 app.post('/api/addDoll', async (req, res) => {
     const doll = req.body.doll
     try {
-        let newDoll = await db.execute('INSERT INTO DOLLS (HEIGHT, NAME, BRAND, PRICE, PICTURE) VALUES(?,?,?,?,?)', [doll.height, doll.name, doll.brand, doll.price, doll.picture])
+        let newDoll = await db.execute('INSERT INTO DOLLS (HEIGHT, NAME, BRAND, PRICE, PICTURE, WEIGHT, MATERIAL_TYPE, ETHNICITY, CATEGORY) VALUES(?,?,?,?,?,?,?,?,?)', [doll.height, doll.name, doll.brand, doll.price, doll.picture, doll.weight, doll.materialType, doll.ethnicity, doll.category])
         res.status(200).json(newDoll)
     } catch (err) {
         res.status(500).json(err)
@@ -53,7 +57,8 @@ app.delete('/api/deleteDoll', async (req, res) => {
 app.put('/api/updateDoll', async (req, res) => {
     const doll = req.body.doll
     try {
-        let updatedDoll = await db.execute('UPDATE DOLLS SET HEIGHT = ?, NAME = ?, BRAND = ?, PRICE = ?, PICTURE = ?', [doll.height, doll.name, doll.brand, doll.price, doll.picture])
+        console.log(doll)
+        let updatedDoll = await db.execute('UPDATE DOLLS SET HEIGHT = ?, NAME = ?, BRAND = ?, PRICE = ?, PICTURE = ?, WEIGHT = ?, MATERIAL_TYPE = ?, ETHNICITY = ?, CATEGORY = ? WHERE ID = ?', [doll.height, doll.name, doll.brand, doll.price, doll.picture, doll.weight, doll.materialType, doll.ethnicity, doll.category, doll.id])
         res.status(200).json(updatedDoll)
     } catch (err) {
         res.status(500).json(err)

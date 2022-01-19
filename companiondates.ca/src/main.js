@@ -5,7 +5,9 @@ import vuetify from '@/plugins/vuetify' // path to vuetify export
 import App from './App'
 import router from './router'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import VuePictureSwipe from 'vue-picture-swipe';
 
+Vue.component('vue-picture-swipe', VuePictureSwipe);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

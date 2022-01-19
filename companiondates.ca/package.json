@@ -10,6 +10,7 @@
   "dependencies": {
     "material-design-icons-iconfont": "^5.0.1",
     "vue": "^2.5.2",
+    "vue-picture-swipe": "^2.1.0",
     "vue-recaptcha": "^2.0.1",
     "vue-router": "^3.0.1",
     "vuetify": "^2.2.14"
