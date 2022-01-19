@@ -32,6 +32,7 @@
             </v-card-actions>
             <p class="subtitle-1">
               <strong>Material: </strong> {{doll.MATERIAL_TYPE}} <br>
+              <strong>Height: </strong> {{doll.HEIGHT}} <br>
               <strong>Weight: </strong> {{doll.WEIGHT}} <br>
               <strong>Ethnicity: </strong> {{doll.ETHNICITY}} <br>
               <strong>Category: </strong> {{doll.CATEGORY}} <br>
