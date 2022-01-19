@@ -275,7 +275,7 @@ import axios from 'axios'
         }),
         methods:{
           getDolls(){
-            axios.get('/api/getDolls')
+            axios.post('/api/getDolls')
             .then(resp=>{
               this.products = resp.data
             })

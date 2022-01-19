@@ -5,17 +5,29 @@ var cookieParser = require('cookie-parser')
 const path = require('path')
 var db = require('./database')
 var bodyParser = require('body-parser')
+var fallback = require('express-history-api-fallback')
 require('dotenv').config();
+var root = path.join(__dirname, '/companiondates.ca/dist')
+var history = require('connect-history-api-fallback');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 app.use(cookieParser())
 
+app.use(express.static(root));
+app.use(fallback('index.html', { root }))
+app.use(history({
+    rewrites: [
+        {
+            from: /^\/api\/.*$/,
+            to: function (context) {
+                return context.parsedUrl.path
+            }
+        }
+    ]
+}))
 
-app.use(express.static(path.join(__dirname, '/companiondates.ca/dist')));
-
-app.get('/api/getDolls', async (req, res) => {
+app.post('/api/getDolls', async (req, res) => {
     try {
         let dolls = (await db.execute('SELECT * FROM DOLLS'))[0]
         res.status(200).json(dolls)
