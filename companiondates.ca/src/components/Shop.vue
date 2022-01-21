@@ -57,9 +57,15 @@
             <v-divider></v-divider>
             <v-card-title class="pb-0">Height</v-card-title>
             <v-container class="pt-0" fluid>
-              <v-checkbox label="123cm" @click.prevent="setActive('123cm')" hide-details dense></v-checkbox>
+              <v-checkbox label="125cm" @click.prevent="setActive('125cm')" hide-details dense></v-checkbox>
               <v-checkbox label="158cm" @click.prevent="setActive('158cm')" hide-details dense></v-checkbox>
               <v-checkbox label="165cm" @click.prevent="setActive('165cm')" hide-details dense></v-checkbox>
+              <v-checkbox label="169cm" @click.prevent="setActive('169cm')" hide-details dense></v-checkbox>
+              <v-checkbox label="174cm" @click.prevent="setActive('174cm')" hide-details dense></v-checkbox>
+              <v-checkbox label="171cm" @click.prevent="setActive('171cm')" hide-details dense></v-checkbox>
+            
+            
+            
             </v-container>
             <v-divider></v-divider>
             <v-card-title class="pb-0">Ethnicity</v-card-title>
