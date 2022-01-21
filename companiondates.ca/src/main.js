@@ -6,7 +6,10 @@ import App from './App'
 import router from './router'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import VuePictureSwipe from 'vue-picture-swipe';
+import titleMixin from './mixins/titleMixin'
 
+
+Vue.mixin(titleMixin)
 Vue.component('vue-picture-swipe', VuePictureSwipe);
 Vue.config.productionTip = false
 

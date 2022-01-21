@@ -29,6 +29,7 @@
                   outlined
                   dense
                   @change="$set(range, 0, $event)"
+                  type="number"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="2">
@@ -41,27 +42,31 @@
                   outlined
                   dense
                   @change="$set(range, 1, $event)"
+                  type="number"
                 ></v-text-field>
               </v-col>
             </v-row>
-            <!-- <v-divider></v-divider>
-            <v-card-title class="pb-0">Customer Rating</v-card-title>
-            <v-container class="pt-0"  fluid>
-              <v-checkbox append-icon="mdi-star" label="4 & above" hide-details dense></v-checkbox>
-              <v-checkbox append-icon="mdi-star" label="3 & above" hide-details dense></v-checkbox>
-              <v-checkbox append-icon="mdi-star" label="2 & above" hide-details dense></v-checkbox>
-              <v-checkbox append-icon="mdi-star" label="1 & above" hide-details dense></v-checkbox>
-            </v-container> -->
             <v-divider></v-divider>
-            <v-card-title class="pb-0">Size</v-card-title>
+            <v-card-title class="pb-0">Category</v-card-title>
+            <v-container class="pt-0"  fluid>
+              <v-checkbox label="Busty" @click.prevent="setActive('Busty')" hide-details dense></v-checkbox>
+              <v-checkbox label="Fit" @click.prevent="setActive('Fit')" hide-details dense></v-checkbox>
+              <v-checkbox label="Curvy" @click.prevent="setActive('Curvy')" hide-details dense></v-checkbox>
+              <v-checkbox label="Mini Sex Doll" @click.prevent="setActive('Mini Sex Doll')" hide-details dense></v-checkbox>
+            </v-container>
+            <v-divider></v-divider>
+            <v-card-title class="pb-0">Height</v-card-title>
             <v-container class="pt-0" fluid>
-              <v-checkbox  label="158cm" hide-details dense></v-checkbox>
-              <v-checkbox  label="165cm" hide-details dense></v-checkbox>
-              <v-checkbox  label="M" hide-details dense></v-checkbox>
-              <v-checkbox  label="L" hide-details dense></v-checkbox>
-              <v-checkbox  label="XL" hide-details dense></v-checkbox>
-              <v-checkbox  label="XXL" hide-details dense></v-checkbox>
-              <v-checkbox  label="XXXL" hide-details dense></v-checkbox>
+              <v-checkbox label="123cm" @click.prevent="setActive('123cm')" hide-details dense></v-checkbox>
+              <v-checkbox label="158cm" @click.prevent="setActive('158cm')" hide-details dense></v-checkbox>
+              <v-checkbox label="165cm" @click.prevent="setActive('165cm')" hide-details dense></v-checkbox>
+            </v-container>
+            <v-divider></v-divider>
+            <v-card-title class="pb-0">Ethnicity</v-card-title>
+            <v-container class="pt-0" fluid>
+              <v-checkbox label="Asian" @click.prevent="setActive('Asian')" hide-details dense></v-checkbox>
+              <v-checkbox label="Latina" @click.prevent="setActive('Latina')" hide-details dense></v-checkbox>
+              <v-checkbox label="European" @click.prevent="setActive('European')" hide-details dense></v-checkbox>
             </v-container>
 
           </v-card>
@@ -77,14 +82,14 @@
               <small>Showing 1-12 of 200 products</small>
             </v-col>
             <v-col cols="12" sm="4">
-              <v-select class="pa-0" v-model="select" :items="options" style="margin-bottom: -20px;" outlined dense></v-select>
+              <v-select class="pa-0" v-model="select" :items="options" style="margin-bottom: -20px;"  @click="sortByPrice($event)" outlined dense></v-select>
             </v-col>
           </v-row>
 
           <v-divider></v-divider>
 
           <div class="row text-center">
-            <div class="col-md-3 col-sm-6 col-xs-12" :key="pro.id" v-for="pro in products">
+            <div class="col-md-3 col-sm-6 col-xs-12" :key="pro.id" v-for="pro in filteredItems">
               <v-hover v-slot:default="{ hover }">
                 <v-card
                   class="mx-auto"
@@ -142,7 +147,7 @@
 import axios from 'axios'
     export default {
         data: () => ({
-            range: [0, 10000],
+            range: [0, 9000],
             select:'Popularity',
             options: [
                 'Default',
@@ -151,6 +156,7 @@ import axios from 'axios'
                 'Price: Low to High',
                 'Price: High to Low',
             ],
+            filtersApplied:['price'],
             page:1,
             breadcrums: [
                 {
@@ -165,7 +171,7 @@ import axios from 'axios'
                 },
             ],
             min:0,
-            max:10000,
+            max:9000,
             items: [
                 {
                     id: 2,
@@ -273,13 +279,56 @@ import axios from 'axios'
             //     }
             ]
         }),
+        computed: {
+          filteredItems: function() {
+            return this.products.filter( product => {
+              return this.filtersApplied.every( filterApplied => {
+                if (product.CATEGORY.includes(filterApplied)) {
+                  return product.CATEGORY.includes(filterApplied);
+                }
+                if (product.HEIGHT.includes(filterApplied)) {
+                  return product.HEIGHT.includes(filterApplied);
+                }
+                if (product.ETHNICITY.includes(filterApplied)) {
+                  return product.ETHNICITY.includes(filterApplied);
+                }
+                if (filterApplied == 'price') {
+                  if(typeof this.range[0] == 'string' || typeof this.range[1] == 'string'){
+                    console.log('its a string')
+                    return true;
+                  }
+                  return (product.PRICE >= this.range[0] && product.PRICE <= this.range[1]);
+                }
+                
+              });
+            });
+          },
+
+        },
         methods:{
+          sortByPrice: function(e) {
+            console.log(e.target)
+            return this.products.sort(function(a,b) {
+              return a.PRICE - b.PRICE;
+            })
+            return this.products.sort(function(a,b) {
+              return a.PRICE - b.PRICE;
+            })
+          },
           getDolls(){
             axios.post('/api/getDolls')
             .then(resp=>{
               this.products = resp.data
             })
-          }
+          },
+          setActive: function(element){
+            let index = this.filtersApplied.indexOf(element);
+            if(index > -1){
+              this.filtersApplied.splice(index, 1)
+            }else{
+              this.filtersApplied.push(element)
+            }
+          },
         },
         beforeMount(){
           this.getDolls()

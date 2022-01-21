@@ -151,15 +151,15 @@
         </v-card>
       </div>
     </div>
-    <v-container>
+    <!-- <v-container>
       <v-row no-gutters>
         <v-col :cols="12">
           <v-card-text
             class=""
             tile
             outlined
-          >
-            <v-card-title class="subheading ">Deals of the Day</v-card-title>
+          > -->
+            <!-- <v-card-title class="subheading ">Deals of the Day</v-card-title>
             <v-divider></v-divider>
             <div class="row">
               <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
@@ -299,25 +299,14 @@
           </v-card-text>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
     <v-card  class="accent" >
       <v-container>
         <v-row no-gutters>
           <v-col class="col-12 col-md-4 col-sm-12">
             <v-row >
               <v-col class="col-12 col-sm-3 pr-4" align="right">
-                <v-icon class="display-2">mdi-truck</v-icon>
-              </v-col>
-              <v-col class="col-12 col-sm-9 pr-4">
-                <h3 class="font-weight-light">FREE SHIPPING & RETURN</h3>
-                              <p class="font-weight-thin">Free Shipping over $300</p>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-col class="col-12 col-md-4 col-sm-12">
-            <v-row >
-              <v-col class="col-12 col-sm-3 pr-4" align="right">
-                <v-icon class="display-2">mdi-cash-usd</v-icon>
+                <v-icon class="display-2">mdi--currency-usd</v-icon>
               </v-col>
               <v-col  class="col-12 col-sm-9 pr-4">
                 <h3 class="font-weight-light">MONEY BACK GUARANTEE</h3>
@@ -344,6 +333,7 @@
 
 <script>
     export default {
+      title:  'Companion Dates',
         data () {
             return {
                 items: [

@@ -110,7 +110,7 @@
             tile
             outlined
           >
-            <p class="subtitle-1 font-weight-light pt-3 text-center">YOU MIGHT ALSO LIKE</p>
+            <!-- <p class="subtitle-1 font-weight-light pt-3 text-center">YOU MIGHT ALSO LIKE</p>
             <v-divider></v-divider>
             <div class="row text-center">
               <div class="col-md-2 col-sm-4 col-xs-12 text-center">
@@ -311,7 +311,7 @@
                   </v-card>
                 </v-hover>
               </div>
-            </div>
+            </div> -->
           </v-card-text>
         </div>
       </div>
@@ -319,7 +319,7 @@
     <v-card  class="accent" >
       <v-container>
         <v-row no-gutters>
-          <v-col class="col-12 col-md-4 col-sm-12">
+          <!-- <v-col class="col-12 col-md-4 col-sm-12">
             <v-row >
               <v-col class="col-12 col-sm-3 pr-4 hidden-sm-only" align="right">
                 <v-icon class="display-2">mdi-truck</v-icon>
@@ -329,11 +329,11 @@
                 <p class="font-weight-thin">Free Shipping over $300</p>
               </v-col>
             </v-row>
-          </v-col>
+          </v-col> -->
           <v-col class="col-12 col-md-4 col-sm-12">
             <v-row >
               <v-col class="col-12 col-sm-3 pr-4" align="right">
-                <v-icon class="display-2">mdi-cash-usd</v-icon>
+                <v-icon class="display-2">mdi-currency-usd</v-icon>
               </v-col>
               <v-col  class="col-12 col-sm-9 pr-4">
                 <h3 class="font-weight-light">MONEY BACK GUARANTEE</h3>
