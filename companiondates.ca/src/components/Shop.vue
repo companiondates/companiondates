@@ -154,11 +154,9 @@ import axios from 'axios'
     export default {
         data: () => ({
             range: [0, 9000],
-            select:'Popularity',
+            select:'Default',
             options: [
                 'Default',
-                'Popularity',
-                'Relevance',
                 'Price: Low to High',
                 'Price: High to Low',
             ],
