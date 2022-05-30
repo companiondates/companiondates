@@ -88,7 +88,7 @@
               <small>Showing 1-12 of 200 products</small>
             </v-col>
             <v-col cols="12" sm="4">
-              <v-select class="pa-0" v-model="select" :items="options" style="margin-bottom: -20px;"  @click="sortByPrice($event)" outlined dense></v-select>
+              <v-select class="pa-0" v-model="select" :items="options" style="margin-bottom: -20px;"  @change="sortByPrice($event)" outlined dense></v-select>
             </v-col>
           </v-row>
 
@@ -310,14 +310,19 @@ import axios from 'axios'
 
         },
         methods:{
-          sortByPrice: function(e) {
-            console.log(e.target)
-            return this.products.sort(function(a,b) {
-              return a.PRICE - b.PRICE;
-            })
-            return this.products.sort(function(a,b) {
-              return a.PRICE - b.PRICE;
-            })
+          sortByPrice(selection) {
+            switch(selection){
+              case 'Default':
+                break;
+              case 'Price: Low to High':
+                return this.products.sort(function(a,b) {
+                  return a.PRICE - b.PRICE;
+                })
+              case 'Price: High to Low':
+                return this.products.sort(function(a,b) {
+                  return b.PRICE - a.PRICE;
+                })
+            }
           },
           getDolls(){
             axios.post('/api/getDolls')

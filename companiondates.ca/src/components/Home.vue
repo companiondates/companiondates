@@ -151,18 +151,18 @@
         </v-card>
       </div>
     </div>
-    <!-- <v-container>
+    <v-container>
       <v-row no-gutters>
         <v-col :cols="12">
           <v-card-text
             class=""
             tile
             outlined
-          > -->
-            <!-- <v-card-title class="subheading ">Deals of the Day</v-card-title>
+          > 
+            <v-card-title class="subheading">Sex Doll Essentials Deals</v-card-title>
             <v-divider></v-divider>
-            <div class="row">
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
+            <div class="row" style="justify-content: center;">
+              <div class="col-12 col-xl-3 col-md-4 col-sm-6 col-xs-6 text-center">
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="200"
@@ -173,19 +173,21 @@
                   <v-img
                     class="white--text align-end"
                     height="200px"
-                    :src="require('../assets/img/home/deal1.jpg')"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    :src="require('../assets/img/home/dotd1.jpg')"
                   >
-                    <v-card-title>Bags & Purses </v-card-title>
+                    <v-card-title>Tuesday IN LOVE</v-card-title>
                   </v-img>
 
                   <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Baggit, Zara, Fossil</div>
+                    <div>10% OFF affiliate link</div>
+                    <div>Halal Nail Polish & Cosmetics</div>
                   </v-card-text>
 
                   <div class="text-center">
                     <v-btn
-                      to="/shop"
+                      target="_blank"
+                      href="https://www.tuesdayinlove.com/?rfsn=6202018.9672de&utm_source=refersion&utm_medium=affiliate&utm_campaign=6202018.9672de"
                       class="ma-2"
                       outlined
                       color="info"
@@ -196,7 +198,7 @@
                 </v-card>
                 </v-hover>
               </div>
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" >
+              <div class="col-12 col-xl-3 col-md-4 col-sm-6 col-xs-6 text-center" >
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="200"
@@ -207,18 +209,20 @@
                   <v-img
                     class="white--text align-end"
                     height="200px"
-                    :src="require('../assets/img/home/deal2.jpg')"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    :src="require('../assets/img/home/dotd2.jpg')"
                   >
-                    <v-card-title>T-Shirt </v-card-title>
+                    <v-card-title>Vani Cosmetics</v-card-title>
                   </v-img>
 
                   <v-card-text class="text--primary text-center">
-                    <div>Upto 50%</div>
-                    <div>Zara, Selected, Celio</div>
+                    <div>30% OFF Glitter Palettes</div>
+                    <div>Eyeshadow, Pigments, Glitter</div>
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn to="/shop"
+                    <v-btn href="https://www.vanicosmetics.com/"
+                      target="_blank"
                       class="ma-2"
                       outlined
                       color="info"
@@ -229,7 +233,7 @@
                 </v-card>
                 </v-hover>
               </div>
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" >
+              <div class="col-12 col-xl-3 col-md-4 col-sm-6 col-xs-6 text-center" >
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="200"
@@ -240,18 +244,20 @@
                   <v-img
                     class="white--text align-end"
                     height="200px"
-                    :src="require('../assets/img/home/deal3.jpg')"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    :src="require('../assets/img/home/dotd3.jpg')"
                   >
-                    <v-card-title>Jeans </v-card-title>
+                    <v-card-title>XooKool</v-card-title>
                   </v-img>
 
                   <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Jack & Jones, Levis</div>
+                    <div>25% off at checkout</div>
+                    <div>Clothing, Shoes & Accessories</div>
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn to="/shop"
+                    <v-btn href='https://www.xookool.com/?ref=Fash'
+                      target='_blank'
                       class="ma-2"
                       outlined
                       color="info"
@@ -262,7 +268,8 @@
                 </v-card>
                 </v-hover>
               </div>
-              <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center" >
+  
+              <div class="col-12 col-xl-3 col-md-4 col-sm-6 col-xs-6 text-center" >
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="200"
@@ -273,18 +280,90 @@
                   <v-img
                     class="white--text align-end"
                     height="200px"
-                    :src="require('../assets/img/home/deal4.jpg')"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    :src="require('../assets/img/home/dotd4.jpg')"
                   >
-                    <v-card-title>Shoes </v-card-title>
+                    <v-card-title>Jouer Cosmetics</v-card-title>
                   </v-img>
 
                   <v-card-text class="text--primary text-center">
-                    <div>Upto 60% + Extra 10%</div>
-                    <div>Nike, Adidas, Puma</div>
+                    <div>25% OFF sitewide sale, GET CODE</div>
+                    <div>Designer makeup & beauty</div>
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn to="/shop"
+                    <v-btn href='https://www.jouercosmetics.com/?rfsn=6301197.836f0d1'
+                      target='_blank'
+                      class="ma-2"
+                      outlined
+                      color="info"
+                    >
+                      Explore
+                    </v-btn>
+                  </div>
+                </v-card>
+                </v-hover>
+              </div>
+               <div class="col-12 col-xl-3 col-md-4 col-sm-6 col-xs-6 text-center" >
+                <v-hover
+                  v-slot:default="{ hover }"
+                  open-delay="200"
+                >
+                  <v-card
+                    :elevation="hover ? 16 : 2"
+                  >
+                  <v-img
+                    class="white--text align-end"
+                    height="200px"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    :src="require('../assets/img/home/dotd5.jpg')"
+                  >
+                    <v-card-title>LOVE Luxe Beauty</v-card-title>
+                  </v-img>
+
+                  <v-card-text class="text--primary text-center">
+                    <div>25% OFF Beauty</div>
+                    <div>Makeup / Beauty Products</div>
+                  </v-card-text>
+
+                  <div class="text-center">
+                    <v-btn href='https://loveluxebeauty.com/?ref=Save10'
+                      target='_blank'
+                      class="ma-2"
+                      outlined
+                      color="info"
+                    >
+                      Explore
+                    </v-btn>
+                  </div>
+                </v-card>
+                </v-hover>
+              </div>
+               <div class="col-12 col-xl-3 col-md-4 col-sm-6 col-xs-6 text-center" >
+                <v-hover
+                  v-slot:default="{ hover }"
+                  open-delay="200"
+                >
+                  <v-card
+                    :elevation="hover ? 16 : 2"
+                  >
+                  <v-img
+                    class="white--text align-end"
+                    height="200px"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    :src="require('../assets/img/home/dotd6.jpg')"
+                  >
+                    <v-card-title>BLK + GRN</v-card-title>
+                  </v-img>
+
+                  <v-card-text class="text--primary text-center">
+                    <div>10% OFF sitewide code</div>
+                    <div>Scented Candles, Nail Polish, Bath, Beauty</div>
+                  </v-card-text>
+
+                  <div class="text-center">
+                    <v-btn href='https://blkgrn.com/'
+                      target='_blank'
                       class="ma-2"
                       outlined
                       color="info"
@@ -299,7 +378,7 @@
           </v-card-text>
         </v-col>
       </v-row>
-    </v-container> -->
+    </v-container>
     <v-card  class="accent" >
       <v-container>
         <v-row no-gutters>

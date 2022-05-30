@@ -2,7 +2,7 @@
 <v-container>
     <p class="display-2 font-weight-light	text-center pa-4">How Can We Help?</p>
     <div>
-        <v-card class="pa-10">
+        <v-card class="pa-10" style="max-width:700px; margin:auto;">
             <v-form
             ref="form"
             action="https://formspree.io/f/mlezgnno"
