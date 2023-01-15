@@ -53,7 +53,7 @@ export default new Router({
           name: 'Contact'
         },
         {
-          path: '*',
+          path: '/*',
           component: Home,
           name: 'Home'
         }

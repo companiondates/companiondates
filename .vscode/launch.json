@@ -19,7 +19,7 @@
             "name": "Front End",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceRoot}/companiondates.ca",
+            "cwd": "${workspaceRoot}/frontend",
             "runtimeExecutable": "npm",
             "runtimeArgs": [
                 "run-script", "serve"

@@ -416,7 +416,7 @@
         mounted(){
           let dollID = this.$route.query.doll
         
-          axios.post('/api/getDoll',{dollID: dollID })
+          axios.post('/.netlify/functions/api/getDoll',{dollID: dollID })
           .then(resp=>{
             console.log(resp.data)
             this.doll = resp.data[0]

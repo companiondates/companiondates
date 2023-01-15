@@ -3,12 +3,13 @@ const app = express()
 var cors = require('cors')
 var cookieParser = require('cookie-parser')
 const path = require('path')
-var db = require('./database')
+var db = require('../database')
 var bodyParser = require('body-parser')
 var fallback = require('express-history-api-fallback')
 require('dotenv').config();
-var root = path.join(__dirname, '/companiondates.ca/dist')
+var root = path.join(__dirname, '/frontend/dist')
 var history = require('connect-history-api-fallback');
+const serverless = require('serverless-http')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -16,18 +17,17 @@ app.use(cookieParser())
 
 app.use(express.static(root));
 app.use(fallback('index.html', { root }))
-app.use(history({
-    rewrites: [
-        {
-            from: /^\/api\/.*$/,
-            to: function (context) {
-                return context.parsedUrl.path
-            }
-        }
-    ]
-}))
 
-app.post('/api/getDolls', async (req, res) => {
+const router = express.Router();
+app.use("/.netlify/functions/", router);
+
+
+// router.get('/api/hello', async (req, res) => {
+//     res.status(200).send("hello")
+// })
+
+
+router.post('/api/getDolls', async (req, res) => {
     try {
         let dolls = (await db.execute('SELECT * FROM DOLLS'))[0]
         res.status(200).json(dolls)
@@ -36,7 +36,7 @@ app.post('/api/getDolls', async (req, res) => {
     }
 })
 
-app.post('/api/getDoll', async (req, res) => {
+router.post('/api/getDoll', async (req, res) => {
     let dollID = req.body.dollID
     try {
         let doll = (await db.execute('SELECT * FROM DOLLS where ID = ?', [dollID]))[0]
@@ -46,7 +46,7 @@ app.post('/api/getDoll', async (req, res) => {
     }
 })
 
-app.post('/api/addDoll', async (req, res) => {
+router.post('/api/addDoll', async (req, res) => {
     const doll = req.body.doll
     try {
         let newDoll = await db.execute('INSERT INTO DOLLS (HEIGHT, NAME, BRAND, PRICE, PICTURE, WEIGHT, MATERIAL_TYPE, ETHNICITY, CATEGORY) VALUES(?,?,?,?,?,?,?,?,?)', [doll.height, doll.name, doll.brand, doll.price, doll.picture, doll.weight, doll.materialType, doll.ethnicity, doll.category])
@@ -56,7 +56,7 @@ app.post('/api/addDoll', async (req, res) => {
     }
 })
 
-app.delete('/api/deleteDoll', async (req, res) => {
+router.delete('/api/deleteDoll', async (req, res) => {
     const doll = req.body.doll
     try {
         let deletedDoll = await db.execute('DELETE FROM DOLLS WHERE ID = ?', [doll.id])
@@ -66,7 +66,7 @@ app.delete('/api/deleteDoll', async (req, res) => {
     }
 })
 
-app.put('/api/updateDoll', async (req, res) => {
+router.put('/api/updateDoll', async (req, res) => {
     const doll = req.body.doll
     try {
         console.log(doll)
@@ -80,3 +80,5 @@ app.put('/api/updateDoll', async (req, res) => {
 app.listen(process.env.PORT || 5000, () => {
     console.log(`companiondates listening at http://localhost:${process.env.PORT || 5000}`)
 })
+
+module.exports.handler = serverless(app)

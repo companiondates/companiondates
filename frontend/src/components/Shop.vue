@@ -325,7 +325,7 @@ import axios from 'axios'
             }
           },
           getDolls(){
-            axios.post('/api/getDolls')
+            axios.post('/.netlify/functions/api/getDolls')
             .then(resp=>{
               this.products = resp.data
             })
