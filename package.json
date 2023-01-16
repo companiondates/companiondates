@@ -6,7 +6,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "serve": "vue-cli-service serve",
     "start": "./node_modules/.bin/netlify-lambda serve lambda",
-    "build": "vue-cli-service build && node_modules\\.bin\\netlify-lambda.cmd build lambda"
+    "build": "./node_modules/.bin/netlify-lambda build lambda && vue-cli-service build"
   },
   "dependencies": {
     "@vue/cli-service": "^5.0.8",
