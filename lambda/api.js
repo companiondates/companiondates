@@ -1,21 +1,15 @@
 const express = require('express')
 const app = express()
-var cors = require('cors')
 var cookieParser = require('cookie-parser')
-const path = require('path')
 var db = require('../database')
 var bodyParser = require('body-parser')
-var fallback = require('express-history-api-fallback')
 require('dotenv').config();
-var root = path.join(__dirname, '/frontend/dist')
 const serverless = require('serverless-http')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-app.use(express.static(root));
-app.use(fallback('index.html', { root }))
 
 const router = express.Router();
 app.use("/.netlify/functions/", router);
