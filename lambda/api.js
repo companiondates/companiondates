@@ -8,7 +8,6 @@ var bodyParser = require('body-parser')
 var fallback = require('express-history-api-fallback')
 require('dotenv').config();
 var root = path.join(__dirname, '/frontend/dist')
-var history = require('connect-history-api-fallback');
 const serverless = require('serverless-http')
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -22,9 +21,14 @@ const router = express.Router();
 app.use("/.netlify/functions/", router);
 
 
-// router.get('/api/hello', async (req, res) => {
-//     res.status(200).send("hello")
-// })
+router.get('/api/hello', async (req, res) => {
+    try {
+        let dolls = (await db.execute('SELECT * FROM DOLLS'))[0]
+        res.status(200).json(dolls)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 
 router.post('/api/getDolls', async (req, res) => {
@@ -77,8 +81,8 @@ router.put('/api/updateDoll', async (req, res) => {
     }
 })
 
-app.listen(process.env.PORT || 5000, () => {
-    console.log(`companiondates listening at http://localhost:${process.env.PORT || 5000}`)
-})
+// app.listen(process.env.PORT || 5000, () => {
+//     console.log(`companiondates listening at http://localhost:${process.env.PORT || 5000}`)
+// })
 
 module.exports.handler = serverless(app)
