@@ -127,7 +127,7 @@
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="col-12 col-md-4 col-sm-12">
+          <!-- <v-col class="col-12 col-md-4 col-sm-12">
             <v-row >
               <v-col class="col-12 col-sm-3 pr-4" align="right">
                 <v-icon class="display-2">mdi-cash-usd</v-icon>
@@ -137,7 +137,7 @@
                 <p class="font-weight-thin">30 Days Money Back Guarantee</p>
               </v-col>
             </v-row>
-          </v-col>
+          </v-col> -->
           <v-col class="col-12 col-md-4 col-sm-12">
             <v-row>
               <v-col class="col-12 col-sm-3 pr-4" align="right">
